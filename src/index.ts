@@ -29,6 +29,10 @@ bot.on('message', async (mes, metadata?) => {
         const isValid: boolean = await blockchain.isValidChain(blockchain.chain);
         bot.editMessageText(`${isValid ? 'The chain is Valid.' : 'The chain is invalid.' }`, { chat_id: chatId, message_id: sendMes.message_id})
 
+    }else if(mes.text === '/start'){
+        const start = 'Hashing files and not only...\nSend any message or file(Image) to Hash and store it on the Blockchain.\nThe Hashed and stored file(s) can not be stored again, since they belongs to their Owners !! \n\nNote: Only files are stored on the Blockchain)'
+        await bot.sendMessage(chatId, start);
+
     }else{
         if(metadata.type !== 'text'){
             const type = metadata.type;
